@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Teszt</title>
+	<f:facet name="first">
+		<meta http-equiv="x-ua-compatible" content="IE=9" />
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta content="index, follow" name="robots" />
+		<h:outputStylesheet library="css" name="box-model.css"  />
+		<h:outputStylesheet library="css" name="layout.css"  />
+</f:facet>
+
+</h:head>
+<f:view contentType="text/html">
+	<h:body>
+
+		<div class="viewBorder">
+			<div class="view">
+				<ui:insert name="content" />
+			</div>
+		</div>
+	</h:body>
+</f:view>
+</html>
