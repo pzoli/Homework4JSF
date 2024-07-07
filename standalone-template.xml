@@ -1,0 +1,26 @@
+        <subsystem xmlns="urn:wildfly:elytron:17.0" final-providers="combined-providers" disallowed-providers="OracleUcrypto">
+            <security-domains>
+...
+                <security-domain name="MyDomain" default-realm="jdbc-realm" permission-mapper="default-permission-mapper">
+                    <realm name="jdbc-realm" role-decoder="from-roles-attribute"/>
+                </security-domain>
+...
+            </security-domains>
+            <security-realms>
+...
+                <jdbc-realm name="jdbc-realm">
+                    <principal-query sql="SELECT role, password FROM systemuser WHERE username = ?" data-source="elytronDS">
+                        <attribute-mapping>
+                            <attribute to="Roles" index="1"/>
+                        </attribute-mapping>
+                        <simple-digest-mapper algorithm="simple-digest-sha-256" password-index="2"/>
+                    </principal-query>
+                </jdbc-realm>
+...
+            </security-realms>
+            <mappers>
+...
+                <simple-role-decoder name="from-roles-attribute" attribute="roles"/>
+...
+			</mappers>
+        </subsystem>
