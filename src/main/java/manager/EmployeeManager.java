@@ -6,6 +6,7 @@ import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import org.jboss.ejb3.annotation.SecurityDomain;
 import service.EmployeeService;
 
 import java.io.Serializable;
@@ -14,6 +15,7 @@ import java.util.Optional;
 
 @SessionScoped
 @Named
+@SecurityDomain("servlet-security-quickstart")
 public class EmployeeManager implements Serializable {
     @Inject
     private EmployeeService employeeService;
